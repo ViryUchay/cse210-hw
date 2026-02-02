@@ -2,12 +2,21 @@
 {
     "version": "0.2.0",
     "configurations": [
+        {
+            "type": "cmake",
+            "request": "launch",
+            "name": "CMake: Configure project",
+            "cmakeDebugType": "configure",
+            "clean": false,
+            "configureAll": false
+        },
+        
 
         {
             "name": "Sandbox Project",
-            "type": "coreclr",
+            "type": "cppdbg",
             "request": "launch",
-            "preLaunchTask": "build-sandbox-Sandbox",
+         
             "program": "${workspaceFolder}/sandbox/Sandbox/bin/Debug/net10.0/Sandbox.dll",
             "args": [],
             "cwd": "${workspaceFolder}/sandbox/Sandbox",
