@@ -36,14 +36,13 @@ abstract class Activity
 
     public void ShowSpinner(int seconds)
     {
-        string[] spin = { "|", "/", "-", "\\" };
-        int i = 0;
+        string[] symbols = { "|", "/", "-", "\\" };
+        int index = 0;
+        DateTime endTime = DateTime.Now.AddSeconds(seconds);
 
-        DateTime end = DateTime.Now.AddSeconds(seconds);
-
-        while (DateTime.Now < end)
+        while (DateTime.Now < endTime)
         {
-            Console.Write(spin[i++ % spin.Length]);
+            Console.Write(symbols[index++ % symbols.Length]);
             Thread.Sleep(200);
             Console.Write("\b");
         }
