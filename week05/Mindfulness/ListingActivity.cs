@@ -1,58 +1,53 @@
 class ListingActivity : Activity
 {
     private int _count;
-    private List<string> _prompts = new List<string>()
+    private List<string> _prompts = new()
     {
-        "Who are people you appreciate?",
+        "Who are people that you appreciate?",
         "What are your personal strengths?",
-        "Who have you helped recently?",
-        "What made you happy today?",
-        "Who are your heroes?"
+        "Who are people you have helped recently?",
+        "What are moments that brought you joy today?",
+        "Who are your personal heroes?"
     };
 
-    private Random _rand = new Random();
+    private Random _random = new();
 
     public ListingActivity()
         : base("Listing Activity",
-        "List as many positive things as you can in a certain area.")
+        "This activity will help you list positive things in your life.")
     { }
 
     public override void Run()
     {
         DisplayStartingMessage();
 
-        string prompt = GetRandomPrompt();
-
-        Console.WriteLine($"\n{prompt}");
+        Console.WriteLine("\n" + GetRandomPrompt());
         Console.Write("Start in: ");
         ShowCountDown(3);
 
         List<string> items = GetListFromUser();
-
         _count = items.Count;
 
         Console.WriteLine($"\nYou listed {_count} items!");
-
         DisplayEndingMessage();
     }
 
     public string GetRandomPrompt()
     {
-        return _prompts[_rand.Next(_prompts.Count)];
+        return _prompts[_random.Next(_prompts.Count)];
     }
 
     public List<string> GetListFromUser()
     {
-        List<string> list = new List<string>();
+        List<string> entries = new();
+        DateTime endTime = DateTime.Now.AddSeconds(_duration);
 
-        DateTime end = DateTime.Now.AddSeconds(_duration);
-
-        while (DateTime.Now < end)
+        while (DateTime.Now < endTime)
         {
             Console.Write("> ");
-            list.Add(Console.ReadLine());
+            entries.Add(Console.ReadLine());
         }
 
-        return list;
+        return entries;
     }
 }
