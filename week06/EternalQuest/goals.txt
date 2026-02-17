@@ -1,0 +1,4 @@
+0
+Simple|give a talk|speak in the meeting when asked|20|False
+Eternal|study the bible|study for at least 10 minutes|50
+Checklist|To attend sunday lesson|attend Sunday lesson, every sunday|100|0|3|50
